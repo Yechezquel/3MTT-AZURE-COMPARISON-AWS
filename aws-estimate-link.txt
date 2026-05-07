@@ -1,0 +1,10 @@
+AWS Pricing Calculator — Saved Estimate
+
+URL: https://calculator.aws/#/estimate?id=ecb1d72711d2b3eae96c16334a9262098f606673
+
+Configuration:
+- Service 1: Amazon EC2 — t3.medium, Linux, On-Demand, 730 hrs, us-east-1
+  EBS gp3 30 GB | Data transfer out 100 GB
+- Service 2: Amazon S3 Standard — 50 GB, 100,000 GET, 10,000 PUT, us-east-1
+
+Total monthly estimate: $43.01 USD

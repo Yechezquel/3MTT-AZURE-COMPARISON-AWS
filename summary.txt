@@ -1,0 +1,42 @@
+Cloud Provider Recommendation — Business Justification
+
+This analysis compared Amazon Web Services (AWS) and Microsoft Azure for hosting
+a small Linux web application with 2 vCPU, 4 GB RAM, 50 GB object storage, and
+100 GB monthly egress, using the official pricing calculators for both platforms.
+
+SCENARIO A: Linux-based Nigerian startup (no existing Microsoft licences)
+
+AWS is the recommended provider for a Linux-based startup operating from Nigeria.
+The AWS estimate came to $43.01/month on-demand while Azure came to $32.77/month
+— however, Azure's lower figure does not fully account for egress. AWS provides
+100 GB/month free egress while Azure provides only 5 GB/month free, adding
+approximately $8.27 to the Azure bill for this workload. The true adjusted gap
+is under $2/month. For a startup where flexibility matters more than marginal
+savings, the AWS Compute Savings Plan is the better commitment mechanism —
+it applies discounts across instance families and regions automatically, allowing
+the team to change instance types as the application scales without losing their
+discount. For a Nigeria-based team, the Europe (Ireland) region offers the best
+balance of cost and latency (~150ms from Lagos) without the 40-70% price premium
+of the Africa (Cape Town) region.
+
+SCENARIO B: Microsoft-centric enterprise with existing Windows Server licences
+
+Azure is the recommended provider for an organisation already running Windows
+Server and SQL Server on-premises with Software Assurance coverage. Azure Hybrid
+Benefit eliminates the Windows licence cost entirely, reducing a Windows B2s VM
+from approximately $65.86/month down to $32.77/month — the same price as Linux.
+This was confirmed directly in the Azure Pricing Calculator with the AHB toggle
+applied. Combined with a 1-year Reserved Instance (42% compute discount), total
+savings versus pay-as-you-go Windows pricing exceed 70%. No equivalent mechanism
+exists on AWS. Beyond pricing, an enterprise already invested in Microsoft 365,
+Azure Active Directory, and on-premises Windows infrastructure benefits from
+native integration and unified compliance tooling that AWS cannot match without
+significant additional configuration effort.
+
+CONCLUSION
+
+Neither provider is universally cheaper. AWS wins on egress free tier and
+Savings Plan flexibility. Azure wins decisively for Microsoft-licensed workloads
+through Hybrid Benefit stacking. With 3-year commitments applied, both platforms
+converge to similar monthly costs, making ecosystem fit the deciding factor for
+long-term deployments.
